@@ -1,0 +1,5 @@
+- content_for(:html_title) { 'ユーザー新規登録' }
+
+= form_with(model: @user, url: new_confirm_users_path, method: :POST, local: true) do |f| 
+  = render :partial => 'users/form', :locals => {:f => f}
+  = f.submit '確認'

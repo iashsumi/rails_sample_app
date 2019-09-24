@@ -1,0 +1,40 @@
+doctype html
+html 
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title App
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_pack_tag 'application'
+    = javascript_pack_tag 'application'
+  body onload="document.body.style.visibility='visible'" style="visibility:hidden" 
+    header
+      nav
+        .nav-wrapper.blue.lighten-3
+          a.brand-logo href="#" 
+            = content_for?(:html_title) ? yield(:html_title) : "Default"
+          ul#nav-mobile.right.hide-on-med-and-down
+            li
+              a href="sass.html"  Sass
+          a.sidenav-trigger data-target="slide-out" href="#" 
+            i.material-icons menu
+      / sidebar
+      ul#slide-out.sidenav.sidenav-fixed
+        li.no-padding
+          ul.collapsible.collapsible-accordion
+            li
+              a.collapsible-header
+                | ユーザー管理
+              .collapsible-body
+                ul
+                  li
+                    = link_to "ユーザー一覧", users_path
+                  li
+                    = link_to "ユーザー登録", new_user_path
+                  li
+                    = link_to "ユーザー一括登録", new_all_users_path
+      main
+        .row
+          .col.s12
+            = render partial: "shared/message"
+            = yield
