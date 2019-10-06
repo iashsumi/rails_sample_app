@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  root 'home#top'
-
   devise_for :administrators, skip: :all
   devise_scope :administrator do
+    root :to => 'administrators/sessions#new'
     get 'login' => 'administrators/sessions#new', as: :new_administrator_session
     post 'login' => 'administrators/sessions#create', as: :administrator_session
     delete 'logout' => 'administrators/sessions#destroy', as: :destroy_administrator_session

@@ -11,8 +11,7 @@ html
 
   body onload="document.body.style.visibility='visible'" style="visibility:hidden" 
     header
-      #flash-danger hidden=true
-        = flash[:alert]
+      = flash[:alert]
     main
       .container
         .row
@@ -23,3 +22,14 @@ html
             a.test href="https://github.com/S-Tomoki/Vue.js_sample" repository
           #top_login.card.col.m5.s12
             = yield
+css:
+  #login_flash {
+    width: 100vw;
+    color: white;
+    text-align: center;
+    background-color: red;
+  }
+
+  header {
+    padding-left: 0px;
+  }
