@@ -11,10 +11,8 @@ html
 
   body onload="document.body.style.visibility='visible'" style="visibility:hidden" 
     header
-      / h1 Management System Sample
-      - if resource.errors.present?
-        - resource.errors.full_messages.each do | msg |
-          p = msg
+      #flash-danger hidden=true
+        = flash[:alert]
     main
       .container
         .row
@@ -25,5 +23,3 @@ html
             a.test href="https://github.com/S-Tomoki/Vue.js_sample" repository
           #top_login.card.col.m5.s12
             = yield
-
-            / validation後のactiveはsession, registerでそれぞれインスタンス変数持ってそれでうまいことやる
