@@ -15,7 +15,7 @@ html
             = content_for?(:html_title) ? yield(:html_title) : "Default"
           ul#nav-mobile.right.hide-on-med-and-down
             li
-              a href="sass.html"  Sass
+              = link_to 'Log Out', destroy_administrator_session_path, method: :delete
           a.sidenav-trigger data-target="slide-out" href="#" 
             i.material-icons menu
       / sidebar

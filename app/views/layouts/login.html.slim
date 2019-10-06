@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta content=("width=device-width,initial-scale=1") name="viewport" /
+    title App
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_pack_tag 'application'
+    = javascript_pack_tag 'application'
+
+  body onload="document.body.style.visibility='visible'" style="visibility:hidden" 
+    header
+      / h1 Management System Sample
+      - if resource.errors.present?
+        - resource.errors.full_messages.each do | msg |
+          p = msg
+    main
+      .container
+        .row
+          #top_description.col.m7.s12
+            p 管理画面のサンプルページです
+            p JST 09:00 ~ 21:00　の間だけアクセス可能です
+            p データは日々洗い替えします
+            a.test href="https://github.com/S-Tomoki/Vue.js_sample" repository
+          #top_login.card.col.m5.s12
+            = yield
+
+            / validation後のactiveはsession, registerでそれぞれインスタンス変数持ってそれでうまいことやる

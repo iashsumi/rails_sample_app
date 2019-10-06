@@ -1,0 +1,14 @@
+.field
+  = f.label :login_id
+  br/
+  = f.text_field :login_id, autofocus: true, autocomplete: "login_id", class: 'invalid'
+  <span class="helper-text" data-error="ssssssssssssss" data-success="right">Helper text</span>
+.field
+  = f.label :password
+  br/
+  = f.password_field :password, autocomplete: "current-password"
+.actions
+  button.btn.waves-effect.waves-light name="action" type="submit" 
+    | Login
+
+p BBB

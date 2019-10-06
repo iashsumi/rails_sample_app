@@ -1,0 +1,18 @@
+#top_login {
+  padding: 20px;
+  order:1;
+}
+
+#top_description * {
+  font-size: 18px;
+  order:2;
+}
+
+.actions > button {
+  width: 100%;
+}
+
+#register.field_with_errors > input {
+  border-style: solid; 
+  border-color: red;
+}
