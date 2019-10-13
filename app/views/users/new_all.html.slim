@@ -1,5 +1,11 @@
-- content_for(:html_title) { 'ユーザー一括登録' }
+- content_for(:html_title) { t(".title") }
 
 = form_tag import_users_path, multipart: true do
-  = file_field_tag :file
-  = submit_tag 'Send file'
+  .file-field.input-field
+    .btn
+      span File
+      input type="file" id='file' name='file' 
+    .file-path-wrapper
+      input.file-path.validate type="text"
+  button.btn.waves-effect.waves-light name="action" type="submit" 
+    = t('item.execute')

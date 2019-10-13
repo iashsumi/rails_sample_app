@@ -1,12 +1,20 @@
 -unless @user.new_record? 
-  =f.label :id
-  =f.hidden_field :id, value: @user.id  
-=f.label :name
-=f.hidden_field :name, value: @user.name
-p =@user.name
-=f.label :address
-=f.hidden_field :address, value: @user.address
-p =@user.address
-=f.label :email
-=f.hidden_field :email, value: @user.email
-p =@user.email
+  = f.label User.human_attribute_name(:id)
+  = f.hidden_field :id, value: @user.id  
+= f.label User.human_attribute_name(:name)
+= f.hidden_field :name, value: @user.name
+p = @user.name
+= f.label User.human_attribute_name(:birthday)
+= f.hidden_field :birthday, value: @user.birthday
+p = @user.birthday
+= f.label User.human_attribute_name(:sex)
+= f.hidden_field :sex, value: @user.sex
+p = @user.sex_i18n
+= f.label User.human_attribute_name(:address)
+= f.hidden_field :address, value: @user.address
+p = @user.address
+= f.label User.human_attribute_name(:email)
+= f.hidden_field :email, value: @user.email
+p = @user.email
+button.btn.waves-effect.waves-light name="action" type="submit" 
+  = t('item.execute')

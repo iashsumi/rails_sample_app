@@ -1,0 +1,2 @@
+r = document.getElementById('search_result');
+r.innerHTML = "<%= j (render partial: 'users/search_result', locals: { users: @users } ) %>";

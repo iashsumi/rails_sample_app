@@ -24,15 +24,15 @@ html
           ul.collapsible.collapsible-accordion
             li
               a.collapsible-header
-                | ユーザー管理
+                = t("users.title")
               .collapsible-body
                 ul
                   li
-                    = link_to "ユーザー一覧", users_path
+                    = link_to t("users.index.title"), users_path
                   li
-                    = link_to "ユーザー登録", new_user_path
+                    = link_to t("users.new.title"), new_user_path
                   li
-                    = link_to "ユーザー一括登録", new_all_users_path
+                    = link_to t("users.all.title"), new_all_users_path
       main
         .row
           .col.s12

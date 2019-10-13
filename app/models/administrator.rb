@@ -4,7 +4,7 @@ class Administrator < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :login_id, uniqueness: true, presence: {message: 'を入力してください'}
+  validates :login_id, uniqueness: true
 
    #登録時にメールアドレスを不要とする
    def email_required?

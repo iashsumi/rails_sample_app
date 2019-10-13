@@ -1,43 +1,22 @@
-- content_for(:html_title) { 'ユーザー一覧' }
+- content_for(:html_title) { t(".title") }
+= search_form_for(@q, url: users_path, remote: true) do |f|
+  .row
+    .col.s6
+      .name
+        = f.label User.human_attribute_name(:name)
+        = f.text_field :name_eq
+    .col.s6
+      .birthday
+        = f.label User.human_attribute_name(:birthday)
+        = f.text_field :birthday_eq, { class: 'datepicker' }
+    .col.s6
+      .sex
+        = f.label User.human_attribute_name(:sex)
+        = f.select :sex_eq, User.sexes.map { |k, v| [t("enums.user.sex.#{k}"), v] }, include_blank: true
 
-table.highlight
-  thead
-    tr
-      th Id
-      th Name
-      th BirthDay
-      th Sex
-      th Address
-      th Email
-      th Created_at
-      th Updated_at
-      th Show
-      th Edit
-      th Delete
-  - @users.each do |user|
-    tbody
-      tr
-        td 
-          =user.id
-        td 
-          =user.name
-        td
-          =user.birthday
-        td
-          =user.sex
-        td 
-          =user.address
-        td 
-          =user.email
-        td 
-          =l(user.created_at)
-        td 
-          =l(user.updated_at)
-        td 
-          =link_to '詳細', user_path(user)
-        td 
-          =link_to '編集', edit_user_path(user)
-        td
-          =render partial: "shared/delete_modal", locals: {object: user, url: user_path(user)}
-= paginate @users
+  button.btn.waves-effect.waves-light name="action" type="submit" 
+    = t('item.serach')
 
+#search_result
+  = render :partial => 'users/search_result', :locals => { :users => @users }
+= paginate @users, remote: true

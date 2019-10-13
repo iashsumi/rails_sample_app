@@ -20,5 +20,9 @@ module App
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
     config.i18n.default_locale = :ja
+    # 対象のコントローラのヘルパーのみ読み込む
+    config.action_controller.include_all_helpers = false
+    # バリデーション時にラジオボタンのレイアウトが崩れるためfield_with_errorsを出力しないように設定
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
   end
 end

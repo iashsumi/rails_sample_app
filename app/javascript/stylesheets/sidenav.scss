@@ -2,6 +2,10 @@ header, footer {
   padding-left: 300px;
 }
 
+.error_message {
+  color: rgb(244, 67, 54);
+}
+
 @media only screen and (max-width : 992px) {
   header, main, footer {
     padding-left: 0;

@@ -1,0 +1,39 @@
+table.highlight.scroll-table
+  thead
+    tr
+      th = User.human_attribute_name(:id)
+      th = User.human_attribute_name(:name)
+      th = User.human_attribute_name(:birthday)
+      th = User.human_attribute_name(:sex)
+      th = User.human_attribute_name(:address)
+      th = User.human_attribute_name(:email)
+      th = User.human_attribute_name(:created_at)
+      th = User.human_attribute_name(:updated_at)
+      th = t('item.show')
+      th = t('item.update')
+      th = t('item.delete')
+    - users.each do |user|
+      tbody
+        tr
+          td 
+            = user.id
+          td 
+            = user.name
+          td
+            = user.birthday
+          td
+            = user.sex_i18n
+          td 
+            = user.address
+          td 
+            = user.email
+          td 
+            = l(user.created_at)
+          td 
+            = l(user.updated_at)
+          td 
+            = link_to t('item.show'), user_path(user)
+          td 
+            = link_to t('item.update'), edit_user_path(user)
+          td
+            = render partial: "shared/delete_modal", locals: {object: user, url: user_path(user)}

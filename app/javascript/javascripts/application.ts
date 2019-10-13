@@ -1,0 +1,7 @@
+import 'materialize-css/dist/js/materialize'
+import '../javascripts/datepicker'
+import '../javascripts/modal'
+import '../javascripts/select'
+import '../javascripts/sidenav'
+import '../javascripts/tabs'
+import '../javascripts/toast'

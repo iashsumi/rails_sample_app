@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
-    @users = User.page(params[:page]).per(20)
+    @q = User.ransack(params[:q])
+    @users = @q.result.page(params[:page])
   end
 
   def show
@@ -50,7 +51,7 @@ class UsersController < ApplicationController
 
   def import
     User.bulk_insert(params[:file])
-    redirect_to users_path
+    redirect_to users_path, flash: { success: '登録しました' }
   end
 
   private
@@ -59,6 +60,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :id,
       :name,
+      :birthday,
+      :sex,
       :address,
       :email,
       :avatar,

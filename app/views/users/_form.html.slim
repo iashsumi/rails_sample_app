@@ -1,10 +1,23 @@
 -unless @user.new_record? 
-  =f.label :id
-  =f.hidden_field :id, :value => @user.id
-  p =@user.id
-=f.label :name
-=f.text_field :name
-=f.label :address
-=f.text_field :address
-=f.label :email
-=f.email_field :email
+  = f.label :id
+  = f.hidden_field :id, :value => @user.id
+  p = @user.id
+= f.label :name
+= f.text_field :name
+= f.label :birthday
+= f.text_field :birthday, class: "datepicker"
+= f.label :sex
+br
+label style="margin-right: 10px;"
+  = f.radio_button :sex, :male, checked: true
+  span = t('enums.user.sex.male')
+label
+  = f.radio_button :sex, :female
+  span = t('enums.user.sex.female')
+br
+= f.label :address
+= f.text_field :address
+= f.label :email
+= f.email_field :email
+button.btn.waves-effect.waves-light name="action" type="submit" 
+  = t('item.confirm')

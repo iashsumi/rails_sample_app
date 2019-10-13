@@ -1,14 +1,32 @@
-- content_for(:html_title) { 'ユーザー詳細' }
+- content_for(:html_title) { t(".title") }
+p 
+  = User.human_attribute_name(:id)
+p 
+  = @user.id
+p
+  = User.human_attribute_name(:name)
+p 
+  = @user.name
+p 
+  = User.human_attribute_name(:address)
+p 
+  = @user.address
+p 
+  = User.human_attribute_name(:sex)
+p 
+  = @user.sex_i18n
+p
+  = User.human_attribute_name(:email)
+p 
+  = @user.email
+p 
+  = User.human_attribute_name(:created_at)
+p 
+  = l(@user.created_at)
+p
+  = User.human_attribute_name(:updated_at)
+p
+  = l(@user.updated_at)
 
-p Id
-p =@user.id
-p Name
-p =@user.name
-p Address
-p =@user.address
-p Email
-p =@user.email
-p Created_at
-p =l(@user.created_at)
-p Updated_at
-p =l(@user.updated_at)
+= link_to t('item.back'), users_path, class: 'btn waves-effect waves-light', style: "margin-right: 10px;"
+= link_to t('item.update'), edit_user_path(@user), class: 'btn waves-effect waves-light'

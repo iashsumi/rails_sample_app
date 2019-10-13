@@ -1,5 +1,4 @@
-- content_for(:html_title) { 'ユーザー編集' }
+- content_for(:html_title) { t(".title") }
 
 = form_with(model: @user, url: edit_confirm_user_path(@user), method: :PATCH, local: true) do |f| 
   = render :partial => 'users/form', :locals => {:f => f}
-  = f.submit '確認'
