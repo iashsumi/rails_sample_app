@@ -18,5 +18,4 @@
     = t('item.serach')
 
 #search_result
-  = render :partial => 'users/search_result', :locals => { :users => @users }
-= paginate @users, remote: true
+  = render :partial => 'users/search_result', :locals => { :users => @users, :params => @params }

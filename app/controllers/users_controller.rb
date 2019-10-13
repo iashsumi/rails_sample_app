@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    @params = search_params 
     @q = User.ransack(params[:q])
     @users = @q.result.page(params[:page])
   end
@@ -55,6 +56,11 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def search_params
+    return if params[:q].blank?
+    params.require(:q).permit(:name_eq, :birthday_eq, :sex_eq)
+  end
 
   def user_params
     params.require(:user).permit(

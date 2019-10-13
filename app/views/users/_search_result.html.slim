@@ -37,3 +37,5 @@ table.highlight.scroll-table
             = link_to t('item.update'), edit_user_path(user)
           td
             = render partial: "shared/delete_modal", locals: {object: user, url: user_path(user)}
+
+= paginate users, params: { q: params }, remote: true
