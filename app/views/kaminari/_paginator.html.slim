@@ -7,7 +7,7 @@
     paginator    : the paginator that renders the pagination tags inside
 
 == paginator.render do
-  nav.pagination.blue.lighten-3
+  nav#paginator.pagination.blue.lighten-3
     == first_page_tag unless current_page.first?
     == prev_page_tag unless current_page.first?
     - each_page do |page|
